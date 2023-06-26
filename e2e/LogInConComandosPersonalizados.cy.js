@@ -1,4 +1,4 @@
-describe('D|
+describe('Demo login', () =>{
 beforeEach(function(){
 
  //Visitamos la URL antes de la ejecución de cada it
