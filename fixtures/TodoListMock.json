@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Limpiar a jerry",
+        "completed": false,
+        "id": 1
+    },
+    {
+        "title": "Sacar la basura",
+        "completed": false,
+        "id": 2
+    },
+    {
+        "title": "Estudiar automatización",
+        "completed": false,
+        "id": 3
+    }
+]
