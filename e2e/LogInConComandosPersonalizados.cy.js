@@ -1,5 +1,5 @@
 describe('Demo login', () =>{
-beforeEach(function(){
+    beforeEach(function(){
 
  //Visitamos la URL antes de la ejecución de cada it
         cy.visit('https://www.saucedemo.com/');
