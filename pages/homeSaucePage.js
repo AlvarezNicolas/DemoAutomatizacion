@@ -6,7 +6,7 @@ class homeSaucePage{
     elements = {
         usernameImput: () => cy.get('[data-test="username"]'),
         passwordImput: () => cy.get('#password'),
-        loginButton: () => cy.get('#id="login-button"'),
+        loginButton: () => cy.get('#login-button'),
         messageLockedPutUser: () => cy.get('h3[data-test="error"]')
     }
 

@@ -1,5 +1,5 @@
-import homeSaucePage from "../../pages/inventoryHome";
-import inventoryHome from "../../pages/inventoryHome";
+import homeSaucePage from "../../pages/homeSaucePage";
+import inventoryPage from "../../pages/inventoryPage";
 
 describe('POM implementations', () =>{
 
@@ -18,6 +18,36 @@ describe('POM implementations', () =>{
         //Validamos que hayamos podido loguearmos buscando un elemento que aparezca en la pagina /inventory
         //mediante la utilización de la clase inventoryHome
 
-        inventoryHome.elements.titleSpan().should('have.text', 'Products')
+        inventoryPage.elements.titleSpan().should('have.text', 'Products')
+    })
+
+    it('Validamos el mensaje de error de usuario bloqueado', ()=>{
+
+        homeSaucePage.typeUsername('locked_out_user')
+        homeSaucePage.typePassword('secret_sauce')
+        homeSaucePage.clickLogin()
+
+        //Validamos que el mensaje de usuario bloqueado sea mostrado en pantalla
+        //al ingresar un user locked out (bloquedao)
+
+        homeSaucePage.elements.messageLockedPutUser().should('have.text', 'Epic sadface: Sorry, this user has been locked out.')
+    })
+
+    it('No es posible loguearse por usuario incorrecto', ()=>{
+
+        homeSaucePage.typeUsername('dummyUser')
+        homeSaucePage.typePassword('secret_sauce')
+        homeSaucePage.clickLogin()
+
+        homeSaucePage.elements.messageLockedPutUser().should('have.text', 'Epic sadface: Username and password do not match any user in this service')
+    })
+
+    it('Validar mensaje de contraseña incorrecta', ()=>{
+
+        homeSaucePage.typeUsername('standard_user')
+        homeSaucePage.typePassword('dummyPassword')
+        homeSaucePage.clickLogin()
+
+        homeSaucePage.elements.messageLockedPutUser().should('have.text', 'Epic sadface: Username and password do not match any user in this service')
     })
 })
